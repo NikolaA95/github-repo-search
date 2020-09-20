@@ -67,7 +67,14 @@ class MainFragment : Fragment() {
                 val res = response?.body?.string()
                 val gson = GsonBuilder().create()
                 val newResults = gson.fromJson(res, Result::class.java)
-
+                if(newResults.items==null)  //lie, this can be null!
+                {
+                    Handler(Looper.getMainLooper()).post{
+                        Toast.makeText(context,"API rate limit exceeded!\nTry again later.",Toast.LENGTH_LONG ).show()
+                        mainBinding.progressBarMain.visibility = INVISIBLE
+                    }
+                    return
+                }
                 if (::results.isInitialized && !results.items.isEmpty()) {
                     results.items.addAll(newResults.items)
                     results.total_count = newResults.total_count
@@ -134,11 +141,11 @@ class MainFragment : Fragment() {
                 if (::results.isInitialized) {
                     if (!recyclerView.canScrollVertically(1)) {
                         if (results.items.size < results.total_count)
-//                            if (!isLoading)
+                            if (!isLoading)
                             fetchData(searchForValue, ++page, spinner.selectedItem.toString())
                     } else if (!recyclerView.canScrollVertically(0)) {
                         if (results.items.size > 0)
-//                            if (!isLoading)
+                            if (!isLoading)
                             fetchData(searchForValue, --page, spinner.selectedItem.toString())
                     }
                 }
