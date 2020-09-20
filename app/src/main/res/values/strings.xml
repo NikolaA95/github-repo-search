@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">GitHubSearch</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="issues">Issues: </string>
+    <string name="watchers">Watchers: </string>
+    <string name="forks">Forks: </string>
+
+    <string name="repo_name">Repo name: </string>
+    <string name="created_at">Created at: </string>
+    <string name="updated_at">Updated at: </string>
+    <string name="language">Language: </string>
+    <string name="forks_count">Forks count: </string>
+    <string name="open_owner_info">Open owner info</string>
+
+    <string name="public_repos">Public repos: </string>
+    <string name="user_acc_type">User acc type: </string>
+    <string name="open_in_browser">Open in Browser</string>
+
+    <string name="no_mobile_data">"Unable to load, check mobile data"</string>
+
+    <string-array name="sortOption">
+        <item>Stars-desc</item>
+        <item>Stars-asc</item>
+        <item>Updated-desc</item>
+        <item>Updated-asc</item>
+        <item>Forks-desc</item>
+        <item>Forks-asc</item>
+    </string-array>
+</resources>
